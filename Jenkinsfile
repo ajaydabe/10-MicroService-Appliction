@@ -30,7 +30,7 @@ pipeline {
                           dir('/var/lib/jenkins/workspace/10-tier/src/adservice') {
                                  sh "docker build -t ajaydabe/adservice:latest ."
                                  sh "docker push ajaydabe/adservice:latest"
-								 sh "docker rmi ajaydabe/adservice:latest"
+								                 sh "docker rmi ajaydabe/adservice:latest"
                         }
                     }
                 }
@@ -44,7 +44,7 @@ pipeline {
                           dir('/var/lib/jenkins/workspace/10-tier/src/cartservice/src/') {
                                  sh "docker build -t ajaydabe/cartservice:latest ."
                                  sh "docker push ajaydabe/cartservice:latest"
-								 sh " docker rmi ajaydabe/cartservice:latest"
+								                 sh " docker rmi ajaydabe/cartservice:latest"
                         }
                     }
                 }
@@ -58,7 +58,7 @@ pipeline {
                           dir('/var/lib/jenkins/workspace/10-tier/src/checkoutservice/') {
                                  sh "docker build -t ajaydabe/checkoutservice:latest ."
                                  sh "docker push ajaydabe/checkoutservice:latest"
-								 sh " docker rmi ajaydabe/checkoutservice:latest"
+								                 sh " docker rmi ajaydabe/checkoutservice:latest"
                         }
                     }
                 }
@@ -72,7 +72,7 @@ pipeline {
                           dir('/var/lib/jenkins/workspace/10-tier/src/currencyservice/') {
                                  sh "docker build -t ajaydabe/currencyservice:latest ."
                                  sh "docker push ajaydabe/currencyservice:latest"
-								 sh " docker rmi ajaydabe/currencyservice:latest"
+								                 sh " docker rmi ajaydabe/currencyservice:latest"
                         }
                     }
                 }
@@ -86,7 +86,7 @@ pipeline {
                           dir('/var/lib/jenkins/workspace/10-tier/src/emailservice/') {
                                  sh "docker build -t ajaydabe/emailservice:latest ."
                                  sh "docker push ajaydabe/emailservice:latest"
-								 sh " docker rmi ajaydabe/emailservice:latest"
+								                 sh " docker rmi ajaydabe/emailservice:latest"
                         }
                     }
                 }
@@ -100,7 +100,7 @@ pipeline {
                           dir('/var/lib/jenkins/workspace/10-tier/src/frontend/') {
                                  sh "docker build -t ajaydabe/frontend:latest ."
                                  sh "docker push ajaydabe/frontend:latest"
-								 sh "docker rmi ajaydabe/frontend:latest"
+								                 sh "docker rmi ajaydabe/frontend:latest"
                         }
                     }
                 }
@@ -114,7 +114,7 @@ pipeline {
                           dir('/var/lib/jenkins/workspace/10-tier/src/loadgenerator/') {
                                  sh "docker build -t ajaydabe/loadgenerator:latest ."
                                  sh "docker push ajaydabe/loadgenerator:latest"
-								 sh "docker rmi ajaydabe/loadgenerator:latest"
+                								 sh "docker rmi ajaydabe/loadgenerator:latest"
                         }
                     }
                 }
@@ -128,7 +128,7 @@ pipeline {
                           dir('/var/lib/jenkins/workspace/10-tier/src/paymentservice/') {
                                  sh "docker build -t ajaydabe/paymentservice:latest ."
                                  sh "docker push ajaydabe/paymentservice:latest"
-								 sh "docker rmi ajaydabe/paymentservice:latest"
+								                 sh "docker rmi ajaydabe/paymentservice:latest"
                         }
                     }
                 }
@@ -142,7 +142,7 @@ pipeline {
                           dir('/var/lib/jenkins/workspace/10-tier/src/productcatalogservice/') {
                                  sh "docker build -t ajaydabe/productcatalogservice:latest ."
                                  sh "docker push ajaydabe/productcatalogservice:latest"
-								 sh " docker rmi ajaydabe/productcatalogservice:latest"
+								                 sh " docker rmi ajaydabe/productcatalogservice:latest"
                         }
                     }
                 }
@@ -156,7 +156,7 @@ pipeline {
                           dir('/var/lib/jenkins/workspace/10-tier/src/recommendationservice/') {
                                  sh "docker build -t ajaydabe/recommendationservice:latest ."
                                  sh "docker push ajaydabe/recommendationservice:latest"
-								 sh " docker rmi ajaydabe/recommendationservice:latest"
+								                 sh " docker rmi ajaydabe/recommendationservice:latest"
                         }
                     }
                 }
@@ -170,7 +170,7 @@ pipeline {
                           dir('/var/lib/jenkins/workspace/10-tier/src/shippingservice/') {
                                  sh "docker build -t ajaydabe/shippingservice:latest ."
                                  sh "docker push ajaydabe/shippingservice:latest"
-								 sh " docker rmi ajaydabe/shippingservice:latest"
+								                 sh " docker rmi ajaydabe/shippingservice:latest"
                         }
                     }
                 }
@@ -179,7 +179,7 @@ pipeline {
         
         stage('K8-Deploy') {
             steps {
-                withKubeConfig(caCertificate: '', clusterName: 'my-eks22', contextName: '', credentialsId: 'k8s', namespace: 'weapp', restrictKubeConfigAccess: false, serverUrl: 'https://71C1BBCA0B37AEE8D313F37F7056C4E4.gr7.us-east-1.eks.amazonaws.com') {
+                withKubeConfig(caCertificate: '', clusterName: 'my-eks22', contextName: '', credentialsId: 'k8s', namespace: 'webapp', restrictKubeConfigAccess: false, serverUrl: 'https://71C1BBCA0B37AEE8D313F37F7056C4E4.gr7.us-east-1.eks.amazonaws.com') {
                          sh 'kubectl apply -f deployment-service.yml'
                          sh 'kubectl get pods '
                          sh 'kubectl get svc'
